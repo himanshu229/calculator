@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <div style="margin: 80px 300px;">
+        <div class="card text-center">
+            <div class="card-header">
+                <h1>Calculator</h1>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="First_number" placeholder="Enter the Number">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="Second_number" placeholder="Enter the Number">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="Answere" placeholder="Answere" readonly>
+                </div>
+            </div>
+            <div class="card-footer text-muted ">
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-secondary" onclick="select()" id="select">Click To Use
+                        Trigonometry</button>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary m-2" id="add" onclick="add()">Addition</button>
+                    <button type="submit" class="btn btn-primary m-2" id="sub" onclick="sub()">Subtraction</button>
+                    <button type="submit" class="btn btn-primary m-2" id="multy" onclick="multy()">Multiplication</button>
+                    <button type="submit" class="btn btn-primary m-2" id="div" onclick="div()">Division</button>
+                    <button type="submit" class="btn btn-primary m-2" id="mod" onclick="mod()">MOD</button>
+                    <button type="submit" class="btn btn-primary m-2" id="power" onclick="power()">X^Y</button>
+                </div>
+                <div class="mb-3">
+
+                    <button type="submit" class="btn btn-primary m-2" id="sin" onclick="sin()">Sin</button>
+                    <button type="submit" class="btn btn-primary m-2" id="cos" onclick="cos()">Cos</button>
+                    <button type="submit" class="btn btn-primary m-2" id="tan" onclick="tan()">Tan</button>
+                </div>
+            </div>
+        </div>
+</body>
+
+<script>
+    document.getElementById('sin').hidden = true;
+    document.getElementById('cos').hidden = true;
+    document.getElementById('tan').hidden = true;
+
+    function select() {
+
+        var x = document.getElementById('Second_number');
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            document.getElementById('select').innerText = "Click To Use Trigonometry";
+            document.getElementById('add').hidden = false;
+            document.getElementById('multy').hidden = false;
+            document.getElementById('div').hidden = false;
+            document.getElementById('mod').hidden = false;
+            document.getElementById('power').hidden = false;
+            document.getElementById('sub').hidden = false;
+            document.getElementById('sin').hidden = true;
+            document.getElementById('cos').hidden = true;
+            document.getElementById('tan').hidden = true;
+
+
+        } else {
+            x.style.display = "none";
+            document.getElementById('select').innerText = "click to use addition";
+            document.getElementById('add').hidden = true;
+            document.getElementById('multy').hidden = true;
+            document.getElementById('div').hidden = true;
+            document.getElementById('mod').hidden = true;
+            document.getElementById('power').hidden = true;
+            document.getElementById('sub').hidden = true;
+            document.getElementById('sin').hidden = false;
+            document.getElementById('cos').hidden = false;
+            document.getElementById('tan').hidden = false;
+        }
+    }
+    function add() {
+        let firstNumber = document.getElementById('First_number').value;
+        let secondNumber = document.getElementById('Second_number').value;
+        let Answere = parseFloat(firstNumber) + parseFloat(secondNumber);
+        document.getElementById('Answere').value = Answere;
+    }
+    function sub() {
+        let firstNumber = document.getElementById('First_number').value;
+        let secondNumber = document.getElementById('Second_number').value;
+        let Answere = parseFloat(firstNumber) - parseFloat(secondNumber);
+        document.getElementById('Answere').value = Answere;
+    }
+    function multy() {
+        let firstNumber = document.getElementById('First_number').value;
+        let secondNumber = document.getElementById('Second_number').value;
+        let Answere = parseFloat(firstNumber) * parseFloat(secondNumber);
+        document.getElementById('Answere').value = Answere;
+    }
+    function div() {
+        let firstNumber = document.getElementById('First_number').value;
+        let secondNumber = document.getElementById('Second_number').value;
+        let Answere = parseFloat(firstNumber) / parseFloat(secondNumber);
+        document.getElementById('Answere').value = Answere;
+    }
+    function mod() {
+        let firstNumber = document.getElementById('First_number').value;
+        let secondNumber = document.getElementById('Second_number').value;
+        let Answere = parseFloat(firstNumber) % parseFloat(secondNumber);
+        document.getElementById('Answere').value = Answere;
+    }
+    function power() {
+        let firstNumber = document.getElementById('First_number').value;
+        let secondNumber = document.getElementById('Second_number').value;
+        let Answere = Math.pow(parseFloat(firstNumber), parseFloat(secondNumber));
+        document.getElementById('Answere').value = Answere;
+    }
+    function sin() {
+        let firstNumber = document.getElementById('First_number').value;
+        let Answere = Math.sin(parseFloat(firstNumber));
+        document.getElementById('Answere').value = Answere;
+    }
+    function cos() {
+        let firstNumber = document.getElementById('First_number').value;
+        let Answere = Math.cos(parseFloat(firstNumber));
+        document.getElementById('Answere').value = Answere;
+    }
+    function tan() {
+        let firstNumber = document.getElementById('First_number').value;
+        let Answere = Math.tan(parseFloat(firstNumber));
+        document.getElementById('Answere').value = Answere;
+    }
+</script>
+
+</html>
